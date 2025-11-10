@@ -5,13 +5,15 @@
 # definition of the route. A routing.yml file can contain any number of routes.
 anytown.weather_page:
   # The URL path where this page will be displayed.
-  path: "/weather"
+  path: "/weather/{style}"
   defaults:
     # Title of the page used for things like <title> tag.
     _title: "Weather at the market"
     # Defines which method, on which class, should be called to get the
     # page content.
     _controller: '\Drupal\anytown\Controller\WeatherPage::build'
+    # The default value for {style} if it's not included.
+    style: "short"
   requirements:
     # The permissions a user needs to have to see this page.
     _permission: "access content"
